@@ -1,0 +1,31 @@
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "clean": "rm -rf .\/dist",
+    "clean:osx": "rm -rf ./dist/osx",
+    "clean:win": "rm -rf ./dist/win",
+    "build": "npm run clean && npm run build:osx && npm run build:win",
+    "build:osx": "npm run clean:osx && electron-packager ./ Riff --out=dist/osx --platform=darwin --arch=x64 --icon=images/riff.icns",
+    "build:win": "npm run clean:win && electron-packager ./ Riff --out=dist/win --platform=win32 --arch=ia32 --icon=images/riff.ico",
+    "pack": "npm run pack:osx && npm run pack:win",
+    "pack:osx": "npm run build:osx && electron-builder dist/osx/Riff.app --platform=osx --out=installer/osx --config=packager.json",
+    "pack:win": "npm run build:win && electron-builder dist/win/Riff-win32-ia32 --platform=win --out=installer/win --config=packager.json"
+  },
+  "repository": "https://github.com/",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "~1.6.2"
+  }
+}
