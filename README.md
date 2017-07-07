@@ -1,6 +1,13 @@
 # riff
 this is realtime diff project
 
+## Require
+```
+npm install electron-packager -g
+npm install electron-builder -g
+```
+
+
 ## Use
 ```
 # Mac
